@@ -11,7 +11,7 @@
 
 		<h1> JAVASCRIPT CARNIVAL: Whack-a-Mole! </h1>
 
-		<table>
+		<table id="gameBoard">
 		  <tr>
 			<td>  </td>
 			<td>  </td>
@@ -48,7 +48,11 @@
 			<td>  </td>
 		  </tr>
 		</table>
-
+    <div class="mole-grid-subtitle">
+      <div class="mole-countdown" id="countdown"></div>
+      <div class="game-text" id="counter"></div>
+    </div>
+    <!-- <img id="mole" src="/whack-a-mole/mole.PNG"> -->
 		<script src="whack-a-mole.js"></script>
 	</body>
 </html>
