@@ -1,28 +1,36 @@
 // -    -   -   -   -  //
 // JAVASCRIPT CARNIVAL //
 // -    -   -   -   -  //
-//create a variable for unicorns, which selects all instances of class name 'inflate-an-image'
-//create a loop to check for onclick events and if one is clicked on, pass it into through unicornClicked function
-//create this function, with a param of e (event)
-//in the function create a variable to represent each event targeted
-//outside of the function create a counter variable
-//inside the function create a counter increment to count each click on the event target
-//the counter has a maximum of 2 as there are 3 images to cycle through, create an if statement to reset counter on 3rd click
-//include an alert announces which unicorn id is full
-//create a console.log to show click events being detected, referring to unicorn id
-//for every click on a unicorn change the img src. Manipulate the file number being referenced with a string including the counter.
-let unicorns = document.getElementsByClassName('inflate-an-image')
-let counter = 0
-for (let i = 0; i < unicorns.length; i++) {
-  unicorns[i].onclick = unicornClicked
-}
+
+//outside function//
+//create id's for each unicorn and attach an onclick event for each
+//create a function to perform when each unicorn is clicked
+//create a variable name counter and assign an array of 3 numbers, to act as count indexes for each unicorn
+
+// inside function//
+//create a variable to represent unicorns targeted as events
+//each time a unicorn is clicked on, change the image.
+//create a variable of id and equate it to unicorn id index 3, which selects the last character in the in string(which is the number)
+//plug the index number being referred to into a string representing the unicorn image source
+//each image file is named unicorn-<number>, replace with counter id
+//each time the unicorn is clicked the id selects which unicorn id to change, and counter logs each click to appropriate number in array
+
+document.getElementById('uni0').onclick = unicornClicked
+document.getElementById('uni1').onclick = unicornClicked
+document.getElementById('uni2').onclick = unicornClicked
+
+let counter = [0, 0, 0]
+
 function unicornClicked(e) {
   let unicorn = e.target
-  counter++
-  console.log(`I clicked on unicorn number ${unicorn.id}`)
-  unicorn.src = './images/unicorn-' + counter + '.png'
-  if (counter > 2) {
-    counter = 0
-    alert(`Unicorn Number ${unicorn.id} has a full balloon`)
+  let id = unicorn.id[3]
+
+  counter[id]++
+
+  if (counter[id] > 3) {
+    counter[id] = 0
+    alert(`Unicorn number ${id}'s balloon is full!`)
   }
+
+  unicorn.src = './images/unicorn-' + counter[id] + '.png'
 }
